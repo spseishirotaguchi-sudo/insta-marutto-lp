@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>インスタ運用代行まるっとプラン｜株式会社ネクスト城南</title>
+<meta name="description" content="福岡市内・近郊のお店のInstagramを、企画・撮影・リール編集・投稿・月次報告までまるっと代行。月2本20,000円（税込）から。">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  /* 色は3つだけ：地（白／うすいグレー）・文字（墨）・強調（ネクスト城南の赤） */
+  :root {
+    --red: #CD0202;      /* 白地でコントラスト比 5.9:1 */
+    --red-dark: #A30000;
+    --ink: #222222;
+    --muted: #555555;    /* 白地で 7.5:1 */
+    --bg: #FFFFFF;
+    --bg-soft: #F6F4F2;
+    --line: #E3DFDB;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic Medium", sans-serif;
+    font-size: 17px; line-height: 1.8; letter-spacing: .02em;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 88px 0; }
+  section.soft { background: var(--bg-soft); }
+
+  /* 階層は3段：見出し34px／小見出し24px／本文17px（それぞれ1.4倍差） */
+  .eyebrow { display: block; color: var(--red); font-weight: 700; font-size: 15px; letter-spacing: .14em; margin-bottom: 8px; }
+  h2 { font-size: 34px; line-height: 1.4; margin: 0 0 16px; font-weight: 900; }
+  h3 { font-size: 24px; line-height: 1.5; margin: 0 0 8px; font-weight: 700; }
+  p { margin: 0 0 1em; }
+  .lead { color: var(--muted); margin-bottom: 48px; }
+  .center { text-align: center; }
+  .red { color: var(--red); }
+
+  /* ボタン */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    background: var(--red); color: #fff; text-decoration: none; font-weight: 700;
+    font-size: 19px; padding: 18px 40px; border-radius: 999px; min-height: 60px;
+    box-shadow: 0 6px 0 var(--red-dark); transition: transform .1s, box-shadow .1s;
+  }
+  .btn:hover { transform: translateY(2px); box-shadow: 0 4px 0 var(--red-dark); }
+  .btn small { font-size: 14px; font-weight: 400; opacity: .9; }
+  .cta-note { font-size: 15px; color: var(--muted); margin-top: 14px; }
+
+  /* ヘッダー */
+  header.top { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.96); border-bottom: 1px solid var(--line); }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  header.top img { height: 36px; width: auto; }
+  header.top .btn { font-size: 15px; padding: 8px 20px; min-height: 42px; box-shadow: none; }
+
+  /* ファーストビュー */
+  .hero { padding: 64px 0 80px; background: linear-gradient(180deg, #FFF 0%, var(--bg-soft) 100%); }
+  .hero .wrap { display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; }
+  .hero .tag { display: inline-block; border: 2px solid var(--red); color: var(--red); font-weight: 700; font-size: 15px; padding: 4px 14px; border-radius: 999px; margin-bottom: 18px; }
+  .hero h1 { font-size: 44px; line-height: 1.35; margin: 0 0 20px; font-weight: 900; }
+  .hero h1 .plan-name { display: block; font-size: 22px; font-weight: 700; color: var(--muted); margin-bottom: 10px; }
+  .hero .facts { list-style: none; padding: 0; margin: 0 0 32px; display: grid; gap: 6px; }
+  .hero .facts li { padding-left: 30px; position: relative; font-weight: 700; }
+  .hero .facts li::before { content: ""; position: absolute; left: 4px; top: .55em; width: 14px; height: 8px; border-left: 3px solid var(--red); border-bottom: 3px solid var(--red); transform: rotate(-45deg); }
+  .price-badge { display: flex; align-items: baseline; gap: 6px; margin-bottom: 28px; }
+  .price-badge .from { font-weight: 700; }
+  .price-badge .num { font-size: 52px; font-weight: 900; color: var(--red); line-height: 1; }
+  .price-badge .unit { font-weight: 700; }
+
+  /* スマホの見本 */
+  .phone { width: 300px; margin: 0 auto; border: 10px solid #1d1d1f; border-radius: 40px; background: #fff; overflow: hidden; box-shadow: 0 24px 48px rgba(0,0,0,.18); }
+  .phone .screen { padding: 28px 0 22px; background: #fff; }
+  .phone .screen img { width: 100%; height: auto; }
+  .phone .tabs { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); margin-top: 6px; }
+  .phone .tabs span { height: 3px; }
+  .phone .tabs span.on { background: var(--ink); }
+  .phone-cap { text-align: center; font-size: 14px; color: var(--muted); margin: 14px 0 0; }
+
+  /* 悩み */
+  .worries { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .worry { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 22px 22px 56px; position: relative; font-weight: 700; }
+  .worry::before { content: ""; position: absolute; left: 20px; top: 26px; width: 22px; height: 22px; border: 2px solid var(--red); border-radius: 4px; }
+  .worry::after { content: ""; position: absolute; left: 26px; top: 29px; width: 8px; height: 13px; border-right: 3px solid var(--red); border-bottom: 3px solid var(--red); transform: rotate(45deg); }
+  .bridge { margin-top: 48px; text-align: center; font-size: 22px; font-weight: 700; line-height: 1.7; }
+
+  /* まるっと＝含まれる作業 */
+  .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: step; }
+  .flow .item { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 22px; }
+  .flow .item .no { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--red); color: #fff; font-weight: 900; margin-bottom: 14px; }
+  .flow .item p { color: var(--muted); margin: 0; }
+  .shop-task { margin-top: 32px; background: #fff; border: 2px solid var(--red); border-radius: var(--radius); padding: 24px 28px; display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: center; }
+  .shop-task .label { font-weight: 900; color: var(--red); font-size: 20px; white-space: nowrap; }
+  .shop-task p { margin: 0; }
+
+  /* 選ばれる理由 */
+  .reasons { display: grid; gap: 24px; }
+  .reason { display: grid; grid-template-columns: 96px 1fr; gap: 28px; align-items: start; background: #fff; border-radius: var(--radius); padding: 32px; border: 1px solid var(--line); }
+  .reason .num { font-size: 56px; font-weight: 900; color: var(--red); line-height: 1; }
+  .reason p { color: var(--muted); margin: 0; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+  .stats > div { background: var(--bg-soft); border-radius: 10px; padding: 12px; line-height: 1.5; }
+  .reason-img { grid-template-columns: 96px 1fr 300px; }
+  .profile-shot { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); }
+  .reels-shot { margin: 20px 0 0; }
+  .reels-shot img { width: 100%; height: auto; border-radius: 12px; }
+  .reels-shot figcaption { font-size: 14px; color: var(--muted); margin-top: 6px; }
+  .stats div { font-size: 14px; color: var(--muted); }
+  .stats b { display: block; font-size: 28px; color: var(--red); line-height: 1.3; }
+
+  /* 料金 */
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
+  .plan { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 32px 26px; display: flex; flex-direction: column; position: relative; }
+  .plan.pick { border: 3px solid var(--red); }
+  .plan .ribbon { position: absolute; top: -16px; left: 50%; transform: translateX(-50%); background: var(--red); color: #fff; font-weight: 700; font-size: 14px; padding: 4px 16px; border-radius: 999px; white-space: nowrap; }
+  .plan .name { font-size: 15px; color: var(--muted); font-weight: 700; }
+  .plan h3 { font-size: 24px; margin-bottom: 4px; }
+  .plan .posts { font-weight: 700; margin-bottom: 14px; }
+  .plan .price { font-size: 40px; font-weight: 900; line-height: 1.1; }
+  .plan .price span { font-size: 16px; font-weight: 700; }
+  .plan .for { color: var(--muted); font-size: 15px; margin: 14px 0 18px; min-height: 5.4em; }
+  .plan ul { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
+  .plan li { padding: 10px 0 10px 28px; border-bottom: 1px solid var(--line); position: relative; font-size: 16px; }
+  .plan li::before { content: ""; position: absolute; left: 4px; top: 18px; width: 12px; height: 7px; border-left: 3px solid var(--red); border-bottom: 3px solid var(--red); transform: rotate(-45deg); }
+  .plan li.off { color: #8a8a8a; }
+  .plan li.off::before { border: none; width: 12px; height: 3px; background: #b5b5b5; transform: none; top: 22px; }
+  .common { margin-top: 32px; background: #fff; border-radius: var(--radius); padding: 28px 32px; border: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr; gap: 24px 40px; }
+  .common h3 { font-size: 20px; }
+  .common ul { margin: 0; padding-left: 1.2em; }
+  .common li { margin-bottom: 4px; }
+
+  /* 比較 */
+  .compare-wrap { overflow-x: auto; }
+  table.compare { width: 100%; min-width: 640px; border-collapse: separate; border-spacing: 0; background: #fff; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
+  .compare th, .compare td { padding: 18px 16px; text-align: center; border-bottom: 1px solid var(--line); vertical-align: middle; }
+  .compare thead th { background: var(--bg-soft); font-size: 16px; }
+  .compare thead th.us { background: var(--red); color: #fff; font-size: 18px; }
+  .compare td.us { font-weight: 700; background: #FFF6F6; }
+  .compare tbody th { text-align: left; font-size: 16px; white-space: nowrap; }
+  .compare tr:last-child th, .compare tr:last-child td { border-bottom: none; }
+  .small { font-size: 14px; color: var(--muted); }
+
+  /* 流れ */
+  .steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
+  .steps li { display: grid; grid-template-columns: 64px 1fr; gap: 20px; padding: 0 0 28px; position: relative; }
+  .steps li:not(:last-child)::after { content: ""; position: absolute; left: 31px; top: 56px; bottom: 4px; width: 2px; background: var(--line); }
+  .steps .n { width: 64px; height: 56px; display: grid; place-items: center; background: #fff; border: 2px solid var(--red); border-radius: 12px; color: var(--red); font-weight: 900; font-size: 15px; line-height: 1.2; text-align: center; }
+  .steps h3 { font-size: 20px; margin: 4px 0 4px; }
+  .steps p { color: var(--muted); margin: 0; }
+
+  /* チーム */
+  .team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .member { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 24px; text-align: center; }
+  .member .photo { width: 140px; aspect-ratio: 1; margin: 0 auto 16px; border-radius: 50%; background: var(--bg-soft); border: 2px dashed #c9c3bd; display: grid; place-items: center; color: #8a8a8a; font-size: 14px; line-height: 1.5; }
+  .member .role { color: var(--red); font-weight: 700; font-size: 15px; }
+  .member p { color: var(--muted); text-align: left; margin: 8px 0 0; }
+
+  /* FAQ */
+  .faq details { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 12px; }
+  .faq summary { cursor: pointer; padding: 20px 56px 20px 60px; font-weight: 700; position: relative; list-style: none; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::before { content: "Q"; position: absolute; left: 22px; top: 18px; color: var(--red); font-weight: 900; font-size: 20px; }
+  .faq summary::after { content: "＋"; position: absolute; right: 22px; top: 18px; color: var(--red); font-weight: 900; }
+  .faq details[open] summary::after { content: "－"; }
+  .faq .a { padding: 0 24px 22px 60px; color: var(--muted); }
+
+  /* フォーム */
+  .form-box { max-width: 720px; margin: 0 auto; background: #fff; border-radius: var(--radius); padding: 40px; border: 1px solid var(--line); }
+  .field { margin-bottom: 22px; }
+  .field label { display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 8px; }
+  .req, .opt { font-size: 13px; color: #fff; padding: 1px 8px; border-radius: 4px; font-weight: 700; }
+  .req { background: var(--red); }
+  .opt { background: #777; }
+  .field input, .field textarea { width: 100%; font: inherit; font-size: 17px; padding: 14px 16px; border: 1px solid #bdb6b0; border-radius: 10px; background: #fff; }
+  .field input:focus, .field textarea:focus { outline: 3px solid rgba(205,2,2,.25); border-color: var(--red); }
+  .field textarea { min-height: 160px; resize: vertical; }
+  .form-box .btn { width: 100%; border: none; cursor: pointer; font-family: inherit; }
+  .draft-note { background: #FFF6D6; border: 1px solid #E8D58A; border-radius: 10px; padding: 12px 16px; font-size: 15px; margin-bottom: 24px; }
+
+  /* 中間CTA */
+  .cta-band { background: var(--red); color: #fff; padding: 56px 0; text-align: center; }
+  .cta-band p { font-size: 22px; font-weight: 700; margin-bottom: 24px; }
+  .cta-band .btn { background: #fff; color: var(--red); box-shadow: 0 6px 0 rgba(0,0,0,.2); }
+
+  /* その他相談 */
+  .others { background: #fff; border-radius: var(--radius); padding: 32px; border: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+  .others p { margin: 0; color: var(--muted); }
+
+  footer { background: #222; color: #ddd; padding: 40px 0; font-size: 15px; }
+  footer img { height: 28px; width: auto; background: #fff; padding: 4px 8px; border-radius: 6px; margin-bottom: 12px; }
+  footer p { margin: 0; }
+
+  /* 追従CTA（スマホのみ） */
+  .sticky-cta { display: none; }
+
+  @media (max-width: 860px) {
+    body { font-size: 16px; }
+    section { padding: 64px 0; }
+    h2 { font-size: 30px; }
+    h3 { font-size: 21px; }
+    .hero { padding: 40px 0 56px; }
+    .hero .wrap { grid-template-columns: 1fr; gap: 40px; }
+    .hero h1 { font-size: 32px; }
+    .hero h1 .plan-name { font-size: 18px; }
+    .phone { width: 260px; }
+    .worries, .flow, .plans { grid-template-columns: 1fr; }
+    .plans { gap: 32px; }
+    .plan .for { min-height: 0; }
+    .reason { grid-template-columns: 1fr; gap: 8px; padding: 24px; }
+    .reason .num { font-size: 44px; }
+    .reason-img { grid-template-columns: 1fr; }
+    .stats { gap: 8px; }
+    .stats > div { padding: 10px 6px; font-size: 14px; }
+    .stats b { font-size: 20px; }
+    .profile-shot { max-width: 320px; margin-top: 12px; }
+    .common { grid-template-columns: 1fr; padding: 24px; }
+    .shop-task { grid-template-columns: 1fr; gap: 6px; }
+    .team { grid-template-columns: 1fr; }
+    .others { grid-template-columns: 1fr; }
+    .form-box { padding: 24px 20px; }
+    .bridge { font-size: 19px; }
+    .btn { font-size: 17px; padding: 16px 28px; }
+    header.top .btn { display: none; }
+    .sticky-cta { display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: rgba(255,255,255,.96); border-top: 1px solid var(--line); }
+    .sticky-cta .btn { width: 100%; min-height: 52px; padding: 12px; box-shadow: none; }
+    footer { padding-bottom: 96px; }
+    table.compare { min-width: 0; }
+    .compare th, .compare td { padding: 12px 6px; font-size: 14px; line-height: 1.5; }
+    .compare thead th, .compare thead th.us { font-size: 14px; }
+    .compare tbody th { white-space: normal; font-size: 14px; }
+    .compare .small { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a href="#"><img src="assets/nextjonan_logo.png" alt="株式会社ネクスト城南"></a>
+    <a class="btn" href="#contact">無料で相談する</a>
+  </div>
+</header>
+
+<!-- ファーストビュー -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="tag">福岡市内・近郊のお店さま向け</span>
+      <h1><span class="plan-name">インスタ運用代行まるっとプラン</span>お店のインスタ、<br>撮影から投稿まで<br><span class="red">まるっと</span>おまかせ。</h1>
+      <ul class="facts">
+        <li>毎月お店に伺って撮影（交通費無料）</li>
+        <li>リールの企画・編集・投稿まで代行</li>
+        <li>初期費用 0円</li>
+      </ul>
+      <div class="price-badge"><span class="from">月</span><span class="num">20,000</span><span class="unit">円（税込）から</span></div>
+      <a class="btn" href="#contact">まずは無料で相談する</a>
+      <p class="cta-note">相談だけでも大丈夫です。無理な営業はいたしません。</p>
+    </div>
+    <div>
+      <div class="phone" aria-hidden="true">
+        <div class="screen">
+          <img src="assets/flat7_profile.jpg" alt="" width="1082" height="920">
+          <div class="tabs"><span class="on"></span><span></span><span></span></div>
+          <img src="assets/flat7_reels.jpg" alt="" width="1206" height="713">
+        </div>
+      </div>
+      <p class="phone-cap">ネクスト城南が運用するフラット7公式Instagram</p>
+    </div>
+  </div>
+</section>
+
+<!-- 悩み -->
+<section>
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">PROBLEM</span>
+      <h2>こんなお悩み、ありませんか？</h2>
+      <p class="lead">ひとつでも当てはまったら、ご相談ください。</p>
+    </div>
+    <div class="worries">
+      <div class="worry">お店が忙しくて、投稿する時間がない</div>
+      <div class="worry">何を投稿すればいいのか分からない</div>
+      <div class="worry">写真や動画の撮り方・編集が分からない</div>
+      <div class="worry">投稿しているのに、お客さんが増えない</div>
+      <div class="worry">数字の見方や、次に何をすればいいか分からない</div>
+      <div class="worry">業者に頼むと高そうで、踏み出せない</div>
+    </div>
+    <p class="bridge">インスタは、続けてこそお店の魅力が伝わります。<br>「続ける」の部分を、まるっとお任せください。</p>
+  </div>
+</section>
+
+<!-- サービス内容 -->
+<section class="soft" id="service">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">SERVICE</span>
+      <h2>「まるっと」の中身</h2>
+      <p class="lead">戦略づくりから月末の報告まで、毎月この流れで進めます。</p>
+    </div>
+    <div class="flow">
+      <div class="item"><span class="no">1</span><h3>戦略・企画</h3><p>お店の目的に合わせて運用方針を決め、毎月の投稿内容を企画します。</p></div>
+      <div class="item"><span class="no">2</span><h3>撮影</h3><p>月に1回、お店に伺って撮影します（1回2時間まで・交通費無料）。</p></div>
+      <div class="item"><span class="no">3</span><h3>編集・投稿</h3><p>リールに編集し、キャプションもつけて投稿します。納品だけも選べます。</p></div>
+      <div class="item"><span class="no">4</span><h3>分析・報告</h3><p>毎月の数字をまとめてご報告します。次の月の企画に生かします。</p></div>
+    </div>
+    <div class="shop-task">
+      <div class="label">お店にお願いすること</div>
+      <p>撮影日の立ち会いと、投稿前の内容確認だけ。修正は1コンテンツにつき2回まで承ります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 選ばれる理由 -->
+<section>
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">REASON</span>
+      <h2>ネクスト城南が選ばれる理由</h2>
+      <p class="lead">車の販売・整備・ガソリンスタンドなど、福岡で地域の暮らしを支えてきた会社です。</p>
+    </div>
+    <div class="reasons">
+      <div class="reason reason-img">
+        <div class="num">01</div>
+        <div>
+          <h3>自社のアカウントを、自分たちで運用しています</h3>
+          <p>カーリース「フラット7」のInstagramを、企画推進課が企画から撮影・編集まで手がけています。机の上の理論ではなく、自分たちで試して結果を見てきたやり方でご提案します。</p>
+          <div class="stats">
+            <div><b>約1万人</b>フォロワー</div>
+            <div><b>4本以上</b>100万回再生を超えたリール</div>
+            <div><b>534万回</b>いちばん見られたリール</div>
+          </div>
+          <p class="small" style="margin-top:8px">フラット7公式Instagram（2026年11月時点）</p>
+          <figure class="reels-shot">
+            <img src="assets/flat7_reels.jpg" alt="100万回以上再生されたフラット7のリール（145万回・248万回・534万回）" width="1206" height="713" loading="lazy">
+            <figcaption>100万回以上再生されたリールの一部</figcaption>
+          </figure>
+        </div>
+        <img class="profile-shot" src="assets/flat7_profile.jpg" alt="フラット7公式Instagramのプロフィール画面（フォロワー1万人）" width="1082" height="920" loading="lazy">
+      </div>
+      <div class="reason">
+        <div class="num">02</div>
+        <div>
+          <h3>毎月、お店に伺って撮影します</h3>
+          <p>撮影は月に1回、すべてのプランに含まれています。福岡市内・近郊なら交通費はいただきません。季節のメニューや新商品も、その月のうちに発信できます。</p>
+        </div>
+      </div>
+      <div class="reason">
+        <div class="num">03</div>
+        <div>
+          <h3>月2本、20,000円から始められます</h3>
+          <p>「インスタの効果がまだ分からない」というお店さまも、小さく始めて確かめられます。手ごたえを感じたら、投稿数を増やすプランに切り替えられます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="wrap">
+    <p>どのプランが合うか分からなくても大丈夫です。<br>お店のお話を聞いて、一緒に考えます。</p>
+    <a class="btn" href="#contact">無料で相談する</a>
+  </div>
+</div>
+
+<!-- 料金 -->
+<section class="soft" id="price">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">PRICE</span>
+      <h2>料金プラン</h2>
+      <p class="lead">すべて税込・月額です。初期費用はかかりません。</p>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <span class="name">まるっとプラン</span>
+        <h3>ライト</h3>
+        <div class="posts">月2投稿</div>
+        <div class="price">20,000<span>円／月</span></div>
+        <p class="for">低予算で始めたい方。インスタの効果がまだ分からないけれど、集客に使ってみたい方に。</p>
+        <ul>
+          <li>運用戦略・投稿企画</li>
+          <li>月1回の撮影</li>
+          <li>リール編集・投稿</li>
+          <li>プロフィール見直しのご提案</li>
+          <li>月次報告（数字のみの簡易版）</li>
+          <li class="off">分析と改善提案つきレポート</li>
+        </ul>
+      </div>
+      <div class="plan pick">
+        <span class="ribbon">本格的に始めるなら</span>
+        <span class="name">まるっとプラン</span>
+        <h3>ベーシック</h3>
+        <div class="posts">月4投稿</div>
+        <div class="price">40,000<span>円／月</span></div>
+        <p class="for">自社のSNSを本格的に育てたい方。定期的な発信で、お店を知ってもらう機会を広げたい方に。</p>
+        <ul>
+          <li>運用戦略・投稿企画</li>
+          <li>月1回の撮影</li>
+          <li>リール編集・投稿</li>
+          <li>プロフィール見直しのご提案</li>
+          <li>月次報告</li>
+          <li>分析と改善提案つきレポート</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <span class="name">まるっとプラン</span>
+        <h3>プレミアム</h3>
+        <div class="posts">月8投稿</div>
+        <div class="price">80,000<span>円／月</span></div>
+        <p class="for">ベーシックの内容に加えて、投稿頻度を上げたい方。目的に向けて、しっかり運用していきたい方に。</p>
+        <ul>
+          <li>運用戦略・投稿企画</li>
+          <li>月1回の撮影</li>
+          <li>リール編集・投稿</li>
+          <li>プロフィール見直しのご提案</li>
+          <li>月次報告</li>
+          <li>分析と改善提案つきレポート</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="common">
+      <div>
+        <h3>全プラン共通</h3>
+        <ul>
+          <li>投稿はリールが基本。ご希望に合わせて1本単位でフィード投稿（写真）に変えられます</li>
+          <li>撮影は月1回・2時間まで。福岡市内・近郊は交通費無料</li>
+          <li>投稿までお任せいただくか、納品だけにするかはご契約時に決められます</li>
+          <li>修正は1コンテンツにつき2回まで</li>
+        </ul>
+      </div>
+      <div>
+        <h3>ご契約について</h3>
+        <ul>
+          <li>3か月ごとの自動更新です</li>
+          <li>解約は更新月の1か月前までにお申し出ください</li>
+          <li>分析のため、アカウントのログイン権限をお預かりします（難しい場合はご相談ください）</li>
+          <li>ストーリーズ運用・DM対応・Instagram以外のSNSは対象外です</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 比較 -->
+<section>
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">COMPARE</span>
+      <h2>ほかの方法と比べると</h2>
+      <p class="lead">ベーシック（月4投稿）で比べた場合の目安です。</p>
+    </div>
+    <div class="compare-wrap">
+      <table class="compare">
+        <thead>
+          <tr><th></th><th>自分たちで運用</th><th>一般的な運用代行</th><th class="us">まるっとプラン</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>月の費用</th><td>0円<br><span class="small">（スタッフの時間がかかる）</span></td><td>5万円前後<br><span class="small">（税抜が多い）</span></td><td class="us">40,000円<br><span class="small">（税込）</span></td></tr>
+          <tr><th>初期費用</th><td>—</td><td>数万〜10万円ほど</td><td class="us">0円</td></tr>
+          <tr><th>撮影</th><td>自分で撮る</td><td>別料金や、数か月に1回のことが多い</td><td class="us">毎月1回込み</td></tr>
+          <tr><th>お店の手間</th><td>企画から投稿まですべて</td><td>素材を用意することも</td><td class="us">立ち会いと確認だけ</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small" style="margin-top:12px">一般的な運用代行の欄は、2026年11月に福岡県内・全国の運用代行サービスの公開料金を当社で調べた目安です。</p>
+  </div>
+</section>
+
+<!-- 流れ -->
+<section class="soft">
+  <div class="wrap" style="max-width:760px">
+    <div class="center">
+      <span class="eyebrow">FLOW</span>
+      <h2>ご相談から運用開始まで</h2>
+      <p class="lead">まずはお店のお話を聞かせてください。</p>
+    </div>
+    <ol class="steps">
+      <li><div class="n">STEP<br>1</div><div><h3>無料相談のお申し込み</h3><p>下のフォームから送ってください。担当者からご連絡します。</p></div></li>
+      <li><div class="n">STEP<br>2</div><div><h3>ヒアリング</h3><p>お店に伺うか、オンラインで、お店の強みや目的をお聞きします。</p></div></li>
+      <li><div class="n">STEP<br>3</div><div><h3>ご提案・お見積もり</h3><p>運用方針と、お店に合ったプランをご提案します。</p></div></li>
+      <li><div class="n">STEP<br>4</div><div><h3>ご契約・運用設計</h3><p>運用方針と最初の月の投稿を企画します。必要に応じて、プロフィールの見直しもご提案します。</p></div></li>
+      <li><div class="n">STEP<br>5</div><div><h3>撮影・運用スタート</h3><p>撮影して投稿を始めます。月末に1か月の結果をご報告します。</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- チーム -->
+<section>
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">TEAM</span>
+      <h2>担当チームのご紹介</h2>
+      <p class="lead">ネクスト城南 企画推進課の3人で、お店の運用を支えます。</p>
+    </div>
+    <div class="team">
+      <div class="member">
+        <div class="photo">写真<br>（準備中）</div>
+        <div class="role">ご提案・ご契約の窓口</div>
+        <h3>保坂</h3>
+        <p>お店のお話をうかがい、ご提案からご契約までを担当します。</p>
+      </div>
+      <div class="member">
+        <div class="photo">写真<br>（準備中）</div>
+        <div class="role">プロジェクト統括</div>
+        <h3>牧ノ瀨</h3>
+        <p>運用全体の進み具合と品質に責任を持ち、チームをまとめます。</p>
+      </div>
+      <div class="member">
+        <div class="photo">写真<br>（準備中）</div>
+        <div class="role">運用ディレクター</div>
+        <h3>田口</h3>
+        <p>運用戦略・企画・撮影・編集から、日々のご連絡までを担当します。フラット7のInstagramも手がけています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="soft faq">
+  <div class="wrap" style="max-width:860px">
+    <div class="center">
+      <span class="eyebrow">FAQ</span>
+      <h2>よくあるご質問</h2>
+      <p class="lead">ほかにも気になることがあれば、お気軽にご相談ください。</p>
+    </div>
+    <details><summary>どんな業種でも頼めますか？</summary><div class="a">基本的に業種は問いません。ただし、内容によってはお受けできない場合があります。まずは無料でご相談ください。</div></details>
+    <details><summary>撮影に来てもらえるのはどの地域ですか？</summary><div class="a">福岡市内と、福岡市の近郊です。交通費はいただきません。それ以外の地域は、ご相談ください。</div></details>
+    <details><summary>投稿の内容は事前に確認できますか？</summary><div class="a">はい。投稿前に内容をご確認いただき、修正は1コンテンツにつき2回まで承ります。</div></details>
+    <details><summary>お店側でやることはありますか？</summary><div class="a">撮影日の立ち会いと、投稿前の内容確認です。企画・編集・投稿は私たちが行います。</div></details>
+    <details><summary>ログイン情報を預けるのが不安です。</summary><div class="a">投稿の数字を分析するため、基本的にはログイン権限をお預かりしています。どうしても難しい場合は、別の方法をご相談させてください。</div></details>
+    <details><summary>写真の投稿（フィード）もお願いできますか？</summary><div class="a">リールが基本ですが、ご希望に合わせて1本単位で写真の投稿に変えられます。</div></details>
+    <details><summary>契約期間と解約はどうなっていますか？</summary><div class="a">3か月ごとの自動更新です。解約をご希望の場合は、更新月の1か月前までにお知らせください。</div></details>
+    <details><summary>ストーリーズやDMの返信もお願いできますか？</summary><div class="a">ストーリーズ運用とDM対応は、このプランの対象外です。</div></details>
+    <details><summary>Instagram以外のSNSも相談できますか？</summary><div class="a">運用代行の対象はInstagramのみですが、ほかのSNSについても1回無料でご相談をお受けしています。</div></details>
+  </div>
+</section>
+
+<!-- その他の相談 -->
+<section style="padding-top:0" class="soft">
+  <div class="wrap" style="max-width:860px">
+    <div class="others">
+      <div>
+        <h3>SNS以外のご相談もどうぞ</h3>
+        <p>予約や顧客管理の仕組みづくり、ホームページやLINEを使った集客の流れづくりなども、ご相談をお受けしています。</p>
+      </div>
+      <a class="btn" href="#contact" style="font-size:16px;padding:14px 28px">相談してみる</a>
+    </div>
+  </div>
+</section>
+
+<!-- 無料相談フォーム -->
+<section id="contact">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">CONTACT</span>
+      <h2>無料相談フォーム</h2>
+      <p class="lead">インスタの運用でお悩みの方は、お気軽にご連絡ください。<br>目標やお悩みをていねいにお聞きし、お店に合った進め方をご提案します。</p>
+    </div>
+    <form class="form-box" onsubmit="return false;">
+      <div class="draft-note">ただいまフォームの受付準備中です。近日中に受付を開始します。</div>
+      <div class="field"><label for="f-name"><span class="req">必須</span>お名前</label><input id="f-name" name="name" type="text" autocomplete="name" required placeholder="例）城南 太郎"></div>
+      <div class="field"><label for="f-mail"><span class="req">必須</span>メールアドレス</label><input id="f-mail" name="email" type="email" autocomplete="email" required placeholder="例）info@example.com"></div>
+      <div class="field"><label for="f-biz"><span class="opt">任意</span>事業の概要</label><input id="f-biz" name="business" type="text" placeholder="例）福岡市南区のカフェ"></div>
+      <div class="field"><label for="f-ig"><span class="opt">任意</span>Instagramのアカウントがあればご記入ください</label><input id="f-ig" name="instagram" type="text" placeholder="例）@your_shop"></div>
+      <div class="field"><label for="f-msg"><span class="req">必須</span>お問い合わせ内容</label><textarea id="f-msg" name="message" required placeholder="ご相談したいことを自由にお書きください"></textarea></div>
+      <button class="btn" type="submit" disabled style="opacity:.5;cursor:not-allowed">送信する（準備中）</button>
+      <p class="cta-note center">ご入力いただいた内容は、ご相談への対応にのみ使います。</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/nextjonan_logo.png" alt="株式会社ネクスト城南">
+    <p>インスタ運用代行まるっとプラン　運営：株式会社ネクスト城南 企画推進課</p>
+  </div>
+</footer>
+
+<div class="sticky-cta"><a class="btn" href="#contact">無料で相談する</a></div>
+
+</body>
+</html>
