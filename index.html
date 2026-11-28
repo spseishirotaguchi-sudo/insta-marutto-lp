@@ -182,6 +182,8 @@
   .field input:focus, .field textarea:focus { outline: 3px solid rgba(205,2,2,.25); border-color: var(--red); }
   .field textarea { min-height: 160px; resize: vertical; }
   .form-box .btn { width: 100%; border: none; cursor: pointer; font-family: inherit; }
+  .form-items { list-style: none; padding: 0; margin: 20px 0 28px; display: grid; gap: 10px; }
+  .form-items li { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .draft-note { background: #FFF6D6; border: 1px solid #E8D58A; border-radius: 10px; padding: 12px 16px; font-size: 15px; margin-bottom: 24px; }
 
   /* 中間CTA */
@@ -564,16 +566,15 @@
       <h2>無料相談フォーム</h2>
       <p class="lead">Instagramの運用でお悩みの方は、お気軽にご連絡ください。<br>目標やお悩みをていねいにお聞きし、お店に合った進め方をご提案します。</p>
     </div>
-    <form class="form-box" onsubmit="return false;">
-      <div class="draft-note">ただいまフォームの受付準備中です。近日中に受付を開始します。</div>
-      <div class="field"><label for="f-name"><span class="req">必須</span>お名前</label><input id="f-name" name="name" type="text" autocomplete="name" required placeholder="例）城南 太郎"></div>
-      <div class="field"><label for="f-mail"><span class="req">必須</span>メールアドレス</label><input id="f-mail" name="email" type="email" autocomplete="email" required placeholder="例）info@example.com"></div>
-      <div class="field"><label for="f-biz"><span class="opt">任意</span>事業の概要</label><input id="f-biz" name="business" type="text" placeholder="例）福岡市南区のカフェ"></div>
-      <div class="field"><label for="f-ig"><span class="opt">任意</span>Instagramのアカウントがあればご記入ください</label><input id="f-ig" name="instagram" type="text" placeholder="例）@your_shop"></div>
-      <div class="field"><label for="f-msg"><span class="req">必須</span>お問い合わせ内容</label><textarea id="f-msg" name="message" required placeholder="ご相談したいことを自由にお書きください"></textarea></div>
-      <button class="btn" type="submit" disabled style="opacity:.5;cursor:not-allowed">送信する（準備中）</button>
-      <p class="cta-note center">ご入力いただいた内容は、ご相談への対応にのみ使います。</p>
-    </form>
+    <div class="form-box">
+      <p>下のボタンを押すと、Googleフォームの相談フォームが開きます。入力は1分ほどで終わります。</p>
+      <ul class="form-items">
+        <li><span class="req">必須</span>お名前・メールアドレス・お問い合わせ内容</li>
+        <li><span class="opt">任意</span>事業の概要・Instagramのアカウント</li>
+      </ul>
+      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeWiCLBu9AOEaDEaOAkwFNPn_YiE335nD-VaT0bUupJIHh2jA/viewform" target="_blank" rel="noopener">無料相談フォームを開く</a>
+      <p class="cta-note center">ご入力いただいた内容は、ご相談への対応にのみ使います。<br>Instagramのログイン情報（パスワードなど）は書かないでください。</p>
+    </div>
   </div>
 </section>
 
